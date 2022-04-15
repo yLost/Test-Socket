@@ -19,8 +19,36 @@ import { fetchUsers } from "../redux/slices/user";
 import { fetchPosts } from "../redux/slices/blog";
 import { useEffect, useState } from "react";
 
+import {
+  ToolbarItemProps,
+  ToolBarType,
+  imageTool,
+  boldTool,
+  italicTool,
+  underlineTool,
+  linkTool,
+  unorderedListTool,
+  orderedListTool,
+  alignCenterTool,
+  alignLeftTool,
+  alignRightTool,
+  headingsTool,
+  backColorTool,
+  foreColorTool,
+  spoilerTool,
+  EditorToolBar,
+  rgbTool,
+  clearTool,
+} from "@wipsie/rich-editor";
+import "@wipsie/rich-editor/dist/index.css";
+const WipsieHTMLEditor = dynamic(
+  () => import("@wipsie/rich-editor").then((mod) => mod.WipsieHTMLEditor),
+  { ssr: false }
+);
+
 import axios from "axios";
 import io from "socket.io-client";
+import dynamic from "next/dynamic";
 
 export default function Home(props) {
   const [accessToken, setAccessToken] = useState(null);
@@ -62,8 +90,49 @@ export default function Home(props) {
     setSocket(_socket);
   }
 
+  // Editor
+  const [editorValue, setEditorValue] = useState("");
+  const customImageTool: ToolbarItemProps = {
+    ...imageTool,
+    metadata: {
+      acceptedFormats: "image/jpeg, image/png, image/gif",
+      maxFileSize: 1024 * 1024 * 20, // 20MB
+      uploadUrl: `${"https://env.dev.api.wipsie.com"}/posts/upload`,
+    },
+  };
+  const toolbar: ToolBarType = [
+    [boldTool, italicTool, underlineTool],
+    [headingsTool],
+    [alignLeftTool, alignCenterTool, alignRightTool],
+    [unorderedListTool, orderedListTool],
+    [backColorTool, foreColorTool],
+    [linkTool, customImageTool],
+    [spoilerTool],
+  ];
+
   return (
     <Page backgroundColor="shade">
+      <Container m={2}>
+        <Typography variant="h1">Editor</Typography>
+        <Spacing height={2} />
+        <WipsieHTMLEditor
+          id="user-create-post"
+          value={editorValue}
+          onChange={(value) => {
+            setEditorValue(value);
+          }}
+          toolbar={toolbar}
+        >
+          {({ editorField, editorId, onChange }) => (
+            <EditorToolBar
+              editorField={editorField}
+              editorId={editorId}
+              onChange={onChange}
+              tools={toolbar}
+            />
+          )}
+        </WipsieHTMLEditor>
+      </Container>
       <Container m={2}>
         <Typography variant="h1">Access Token </Typography>
         <Input
