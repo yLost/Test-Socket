@@ -8,6 +8,7 @@ import {
   Typography,
   Input,
   Spacing,
+  Page,
 } from "@wipsie/ui";
 import DefaultLayout from "../components/DefaultLayout";
 import NextLink from "next/link";
@@ -62,7 +63,7 @@ export default function Home(props) {
   }
 
   return (
-    <>
+    <Page backgroundColor="shade">
       <Container m={2}>
         <Typography variant="h1">Access Token </Typography>
         <Input
@@ -150,6 +151,6 @@ export default function Home(props) {
           );
         })}
       </Container>
-    </>
+    </Page>
   );
 }

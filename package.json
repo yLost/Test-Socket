@@ -10,7 +10,9 @@
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@reduxjs/toolkit": "^1.6.2",
-    "@wipsie/ui": "^1.0.160",
+    "@wipsie/rich-editor": "^1.0.201",
+    "@wipsie/shared": "^1.0.201",
+    "@wipsie/ui": "^1.0.201",
     "axios": "^0.24.0",
     "classnames": "^2.3.1",
     "next": "12.0.3",

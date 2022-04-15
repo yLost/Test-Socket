@@ -397,12 +397,25 @@
     "@typescript-eslint/types" "4.33.0"
     eslint-visitor-keys "^2.0.0"
 
-"@wipsie/ui@^1.0.160":
-  version "1.0.160"
-  resolved "https://registry.yarnpkg.com/@wipsie/ui/-/ui-1.0.160.tgz#760cf3e1ed52100f3b6cd1e8c40c030c79ecfc6d"
-  integrity sha512-s/YEwupXKMupYLL70GKT4U1Y3ytSwei1HRExc4ptFCeq/148L5w4SXLHfbOstAFp3f2VPpHgCa2jR/Qb6cFyBA==
+"@wipsie/rich-editor@^1.0.201":
+  version "1.0.201"
+  resolved "https://registry.yarnpkg.com/@wipsie/rich-editor/-/rich-editor-1.0.201.tgz#4dfb5c66ea4ad74be4b05c1c8870f2c3649e7233"
+  integrity sha512-4LM07NVSQv5BBx4PyqcIdH80Q8tR9wyz4ee9iEClTqK9jPndL37AwK4h7jolrH0IGJo1AjwdbPEh7YpAajJVwA==
+  dependencies:
+    "@ant-design/icons" "^4.7.0"
+
+"@wipsie/shared@^1.0.201":
+  version "1.0.201"
+  resolved "https://registry.yarnpkg.com/@wipsie/shared/-/shared-1.0.201.tgz#5e3e0129d0df7cdcf1991d5fd74f44bc8129c9a9"
+  integrity sha512-t4Re9AogRsHgt3Qc+MFYIP53en8y/VuLAQbPzNv4xr699GxfSo0RAWta0lyyuO54TTdP6K7QBo8GWrlZuan8KA==
+
+"@wipsie/ui@^1.0.201":
+  version "1.0.201"
+  resolved "https://registry.yarnpkg.com/@wipsie/ui/-/ui-1.0.201.tgz#14a5c6406e346434bb40b4010d9cddadab27425a"
+  integrity sha512-sSGHysMkeMuAFf3ChMPVV/QnaJkTXbKMuKogKYrvqZsKCj8qc+tddGkI6KAQE/CUrMgv7n9IrLbCOGAsSSivJw==
   dependencies:
     classnames "^2.3.1"
+    lodash.throttle "^4.1.1"
     styled-jsx "^4.0.1"
 
 acorn-jsx@^5.3.1:
@@ -2029,6 +2042,11 @@ lodash.sortby@^4.7.0:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
+
+lodash.throttle@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+  integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
 
 lodash.truncate@^4.4.2:
   version "4.4.2"
