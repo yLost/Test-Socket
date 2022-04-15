@@ -120,6 +120,9 @@ export default function Home(props) {
           value={editorValue}
           onChange={(value) => {
             setEditorValue(value);
+            if (socket) {
+              socket.emit("editorUpdate", value);
+            }
           }}
           toolbar={toolbar}
         >
@@ -162,12 +165,15 @@ export default function Home(props) {
                 const _newEvent = newEvent;
                 setNewEvent("");
 
-                socket.on(_newEvent, (data) =>
+                socket.on(_newEvent, (data) => {
+                  if (_newEvent == "editorUpdate") {
+                    setEditorValue(data);
+                  }
                   setMessages((messages) => [
                     ...messages,
                     { event: _newEvent, data },
-                  ])
-                );
+                  ]);
+                });
 
                 setListenEvent((listenEvent) => {
                   return [...listenEvent, _newEvent];
